@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fortune Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Fortune Generator</h1>
+<div class="container">
+  <div id="fortuneBox" class="fortune-box">
+    Your fortune will appear here.
+  </div>
+  <div class="button-group">
+    <button id="green" onclick="applyGreenTheme()"></button>
+    <button id="yellow"  onclick="applyYellowTheme()"></button>
+    <button id="blue" onclick="applyBlueTheme()"></button>
+    <button id="red" onclick="applyRedTheme()"></button>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Fortune Generator
+</footer>
+
+<script>
+  const fortunes = [
+    "You are about to discover something wonderful.",
+    "A surprise gift is coming your way.",
+    "New opportunities are around the corner.",
+    "Your hard work will pay off.",
+    "Someone is thinking about you.",
+    "You are stronger than you think.",
+    "A fresh start will bring happiness."
+  ];
+
+  function displayRandomFortune() {
+    const box = document.getElementById("fortuneBox");
+    box.textContent = fortunes[Math.floor(Math.random() * fortunes.length)];
+  }
+
+  function applyGreenTheme() {
+    const box = document.getElementById("fortuneBox");
+    box.style.color = "#ffffff";
+    box.style.backgroundColor = "#28a745";
+    box.style.borderColor = "#c82333";
+    box.style.fontFamily = "'Courier New', monospace";
+    box.style.fontSize = "18px";
+  }
+
+  function applyYellowTheme() {
+    const box = document.getElementById("fortuneBox");
+    box.style.color = "#333";
+    box.style.backgroundColor = "#fff3cd";
+    box.style.borderColor = "#28a745";
+    box.style.fontFamily = "'Georgia', serif";
+    box.style.fontSize = "17px";
+  }
+
+  function applyBlueTheme() {
+    const box = document.getElementById("fortuneBox");
+    box.style.color = "#ecf0f1";
+    box.style.backgroundColor = "#007bff";
+    box.style.borderColor = "#ffeeba";
+    box.style.fontFamily = "'Verdana', sans-serif";
+    box.style.fontSize = "18px";
+  }
+
+  function applyRedTheme() {
+    const box = document.getElementById("fortuneBox");
+    box.style.color = "#fff";
+    box.style.backgroundColor = "#dc3545";
+    box.style.borderColor = "#007bff";
+    box.style.fontFamily = "'Lucida Console', monospace";
+    box.style.fontSize = "17px";
+  }
+
+  window.onload = displayRandomFortune;
+</script>
+
+</body>
+</html>

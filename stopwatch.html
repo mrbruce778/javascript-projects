@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stopwatch (Update Every 3 Seconds)</title>
+  <style>
+    body {
+      background-color: antiquewhite;
+      font-family: baskerville;
+      text-align: center;
+    }
+    #display {
+      
+      font-size: 48px;
+      padding-top: 10%;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #3a9c80;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <h1>Stopwatch</h1>
+  <div id="display">0</div>
+  <button onclick="startStopwatch()">Start</button>
+  <button onclick="pauseStopwatch()">Stop</button>
+  <button onclick="resetStopwatch()">Reset</button>
+
+  <script>
+    let seconds = 0;
+    let timer = null;
+    let isRunning = false;
+
+    function updateDisplay() {
+      document.getElementById("display").textContent = seconds;
+    }
+
+    function starttime() {
+      seconds += 3;
+      if (seconds == 30) {
+        pauseStopwatch();
+      }
+      updateDisplay();
+    }
+
+    function startStopwatch() {
+      if (!isRunning) {
+        timer = setInterval(starttime, 3000);
+        isRunning = true;
+      }
+    }
+
+    function pauseStopwatch() {
+      clearInterval(timer);
+      isRunning = false;
+    }
+
+    function resetStopwatch() {
+      pauseStopwatch();
+      seconds = 0;
+      updateDisplay();
+    }
+  </script>
+
+</body>
+</html>
